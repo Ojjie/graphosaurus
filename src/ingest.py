@@ -3,11 +3,15 @@ import time
 import wikipediaapi  
 from groq import Groq
 from falkordb import FalkorDB
+import os 
+from dotenv import load_dotenv
 
 # Initialize Clients
-client = Groq(api_key="YOUR_GROQ_API_KEY")
+load_dotenv() # This loads the variables from .env
+api_key = os.getenv("GROQ_API_KEY")
+client = Groq(api_key=api_key)
 db = FalkorDB(host='localhost', port=6379)
-graph = db.select_graph('graphosaurus')
+graph = db.select_graph('graphosaurus_prod')
 
 # Initialize Wikipedia API with a User-Agent
 wiki = wikipediaapi.Wikipedia(user_agent="DinoGroundingBot/1.0", language='en')

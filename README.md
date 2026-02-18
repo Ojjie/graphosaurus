@@ -22,10 +22,12 @@ Instead of trusting LLM outputs blindly, this system uses a **Verification Loop*
 The system uses `CONTAINS` in Cypher queries to handle the scientific specificity provided by Wikipedia (e.g., matching "Jurassic" within "Late Jurassic Period").
 
 ## 🛠️ Setup
-1. **Docker**: `docker run -p 6379:6379 -p 3000:3000 -it --rm falkordb/falkordb` to spinup the FalkorDB docker image.
+1. **Docker**: `docker run -p 6379:6379 -p 3000:3000 -it --rm falkordb/falkordb` to spinup the FalkorDB docker image once you have Docker Engine running.
 2. **Install the required packages**: `pip install -r requirements.txt`
 3. **Environment**: `export GROQ_API_KEY='your_key'`
+4. **Run**: `python ingest.py` to build the knowledge graph on FalkorDB.
 4. **Run**: `streamlit run src/app.py` and chat with the system!
+5. **View the FalkorDB graph:** Visit `http://localhost:3000/graph`
 
 ## 🖥️ Web Interface
 The project includes a **Streamlit** dashboard for an interactive GraphRAG experience.

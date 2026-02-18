@@ -1,6 +1,6 @@
 import streamlit as st
 import os
-from src.query_engine import DinoGraphRAG
+from query_engine import DinoGraphRAG
 
 # Page Configuration
 st.set_page_config(page_title="Graphosaurus Explorer", page_icon="🦖", layout="wide")
